@@ -25,9 +25,9 @@ function App() {
 	return (
 		<>
 			{
-				añadirUsuario
+				añadirUsuario || updateInfoUser
 					? (
-						<>
+						<article>
 							{
 								<UserForm
 									createUser={createUser}
@@ -37,8 +37,12 @@ function App() {
 									setAñadirUsuario={setAñadirUsuario}
 								/>
 							}
-							<button onClick={() => setAñadirUsuario(!añadirUsuario)}>{updateInfoUser ? 'Cancelar' : 'Ver usuarios'}</button>
-						</>
+							<button 
+								onClick={() => {
+									setAñadirUsuario(!añadirUsuario)
+									setUpdateInfoUser(null)
+							}}>{updateInfoUser ? 'Cancelar' : 'Ver usuarios'}</button>
+						</article>
 					)
 					: (
 						<>

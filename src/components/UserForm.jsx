@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
+import '../styles/UserForm.css'
 
 const UserForm = ({createUser, updateUser, updateInfoUser, setUpdateInfoUser, setAñadirUsuario}) => {
 
@@ -31,42 +32,49 @@ const UserForm = ({createUser, updateUser, updateInfoUser, setUpdateInfoUser, se
     }
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form 
+            className={updateInfoUser ? 'update-form' : 'welcome-form'}
+            onSubmit={handleSubmit(submit)}>
             <h1>{updateInfoUser ? `¿${updateInfoUser?.first_name.split(' ')[0]}, segure quieres modificar tus datos?` : 'Bienvenido'}</h1>
             <div>
                 <label htmlFor="email">Email</label>
                 <input
                     {...register('email')}
                     id="email"
-                    type="text" />
+                    type="text"
+                    placeholder="email" />
             </div>
             <div>
                 <label htmlFor="password">Password</label>
                 <input
                     {...register('password')}
                     id="password"
-                    type="password" />
+                    type="password"
+                    placeholder="password" />
             </div>
             <div>
                 <label htmlFor="first_name">First name</label>
                 <input
                     {...register('first_name')}
                     id="first_name"
-                    type="text" />
+                    type="text"
+                    placeholder="firstname" />
             </div>
             <div>
                 <label htmlFor="last_name">Last name</label>
                 <input
                     {...register('last_name')}
                     id="last_name"
-                    type="text" />
+                    type="text"
+                    placeholder="last name" />
             </div>
             <div>
                 <label htmlFor="birthday">Birthday</label>
                 <input
                     {...register('birthday')}
                     id="birthday"
-                    type="date" />
+                    type="date"
+                    placeholder="birthday" />
             </div>
             <button>{updateInfoUser ? 'Guardar cambios' : 'Registrarse'}</button>
         </form>
