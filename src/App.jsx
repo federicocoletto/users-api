@@ -14,21 +14,30 @@ function App() {
 
 	const [users, getUser, createUser, deleteUser, updateUser] = useFetch(base_URL, users_path)
 	const [updateInfoUser, setUpdateInfoUser] = useState()
-	const [añadirUsuario, setAñadirUsuario] = useState(false)
+	const [añadirUsuario, setAñadirUsuario] = useState(true)
+	const [register, setRegister] = useState(false)
 
 	useEffect(() => {
 		getUser()
 	}, [])
 
-
+	const handleClickFirstReg = () => {
+		setRegister(true)
+	}
 
 	return (
 		<>
 			{
-				añadirUsuario || updateInfoUser
-					? (
-						<article>
-							{
+				register !== true
+					?
+					<div className='welcomePage'>
+						<h1 className='firstTitle'>Bienvenido</h1>
+						<button onClick={handleClickFirstReg}>Registrarse</button>
+					</div>
+					: (
+						añadirUsuario
+							?
+							<>
 								<UserForm
 									createUser={createUser}
 									updateUser={updateUser}
@@ -36,30 +45,34 @@ function App() {
 									setUpdateInfoUser={setUpdateInfoUser}
 									setAñadirUsuario={setAñadirUsuario}
 								/>
-							}
-							<button 
-								onClick={() => {
-									setAñadirUsuario(!añadirUsuario)
-									setUpdateInfoUser(null)
-							}}>{updateInfoUser ? 'Cancelar' : 'Ver usuarios'}</button>
-						</article>
-					)
-					: (
-						<>
-							<h1>Usuarios</h1>
-							<button onClick={() => setAñadirUsuario(!añadirUsuario)}>Crear usuario</button>
-							{
-								users?.map(user => (
-									<UserCard
-										key={user.id}
-										user={user}
-										deleteUser={deleteUser}
-										setUpdateInfoUser={setUpdateInfoUser}
-										setAñadirUsuario={setAñadirUsuario}
-									/>
-								))
-							}
-						</>
+								<button
+									onClick={() => {
+										setAñadirUsuario(!añadirUsuario)
+										setUpdateInfoUser(null)
+									}}>{updateInfoUser ? 'Cancelar' : 'Ver usuarios'}</button>
+							</>
+							:
+							<>
+
+								<div className='header-users'>
+									<h1>Usuarios</h1>
+									<button onClick={() => setAñadirUsuario(!añadirUsuario)}>Crear usuario</button>
+								</div>
+								<div className='users-container'>
+									{
+										users?.map(user => (
+											<UserCard
+												key={user.id}
+												user={user}
+												deleteUser={deleteUser}
+												setUpdateInfoUser={setUpdateInfoUser}
+												setAñadirUsuario={setAñadirUsuario}
+											/>
+										))
+									}
+								</div>
+
+							</>
 					)
 			}
 		</>

@@ -50,7 +50,43 @@ form > div > label {
     color: #222;
 }
 
+.deleteUser-msg.hide,
+.deleteUser-msg.hide > div.false {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
 
+.deleteUser-msg.show {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    background-color: #3338;
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+    transition: all .5s;
+}
 
+.deleteUser-msg.show > div {
+    display: grid;
+    width: 300px;
+    padding: 1em;
+    gap: 1em;
+    justify-items: center;
+    position: relative;
+    margin: 30% auto;
+    background-color: rgb(253, 41, 41);
+    transition: all .5s;
+    text-align: center;
+    border-radius: 1em;
+}
 
+.ok-cancel_btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
 
