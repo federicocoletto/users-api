@@ -1,92 +1,64 @@
-form {
-    padding: 0 1em;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 500px;
-    gap: 1em;
-}
-
-form h1 {
-    text-align: center;
-    margin: 1em 0;
-}
-
-.update-form h1 {
-    color: #e83636;
-}
-
-form > div {
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-}
-
-button {
-    margin-top: 1em;
-}
-
-form > div > label {
-    font-weight: 500;
-}
-
-.welcome-form {
-	background-color: #8888;
-	border-radius: 1em;
-	padding: 0 3em;
-	padding-bottom: 2em;
-	margin-top: 4em;
-}
-
-.welcome-form button {
-    background-color: #2a7c43c2;
-}
-.update-form button { 
-    background-color: #e83636;
-}
-.update-form input, 
-.update-form [type="date" i] {
-    background-color: #6408089d;
-    color: #222;
-}
-
-.deleteUser-msg.hide,
-.deleteUser-msg.hide > div.false {
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.deleteUser-msg.show {
-    display: block;
-    height: 100vh;
-    width: 100vw;
-    background-color: #3338;
-    position: fixed;
-    top: 0;
-    right: 0;
-    opacity: 1;
-    visibility: visible;
-    transition: all .5s;
-}
-
-.deleteUser-msg.show > div {
+#user-form {
     display: grid;
-    width: 300px;
-    padding: 1em;
-    gap: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5em;
+    padding-bottom: 2em;
     justify-items: center;
-    position: relative;
-    margin: 30% auto;
-    background-color: rgb(253, 41, 41);
-    transition: all .5s;
-    text-align: center;
-    border-radius: 1em;
-}
-
-.ok-cancel_btns {
-    display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    /* max-width: 700px; */
 }
 
+.form-header, .form-btns {
+    grid-column: 1/-1;
+}
+
+.welcome-msg_form {
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.warning-msg_form {
+    color: var(--cherry-red);
+    text-align: center;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    gap: .8em;
+    width: 100%;
+    max-width: 350px;
+}
+
+.form-input > label {
+    font-style: italic;
+    text-align: left;
+}
+
+.form-input input {
+    width: 100%;
+    max-width: 350px;
+}
+
+.form-btns {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 350px;
+    justify-content: space-between;
+}
+
+.update-register_btn,
+.cancel-see_btn {
+    background-color: var(--black);
+    color: var(--cream);
+}
+
+.update-register_btn:hover {
+background-color: var(--cherry-red);
+}
+
+.cancel-see_btn:hover {
+background-color: var(--navy-blue);
+}

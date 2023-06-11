@@ -6,6 +6,7 @@ import './App.css'
 import useFetch from './hooks/useFetch'
 import UserForm from './components/UserForm'
 import UserCard from './components/UserCard'
+import WelcomePage from './components/WelcomePage'
 
 function App() {
 
@@ -21,59 +22,46 @@ function App() {
 		getUser()
 	}, [])
 
-	const handleClickFirstReg = () => {
-		setRegister(true)
-	}
+
 
 	return (
 		<>
 			{
 				register !== true
-					?
-					<div className='welcomePage'>
-						<h1 className='firstTitle'>Bienvenido</h1>
-						<button onClick={handleClickFirstReg}>Registrarse</button>
-					</div>
-					: (
-						añadirUsuario
-							?
-							<>
-								<UserForm
-									createUser={createUser}
-									updateUser={updateUser}
-									updateInfoUser={updateInfoUser}
-									setUpdateInfoUser={setUpdateInfoUser}
-									setAñadirUsuario={setAñadirUsuario}
-								/>
-								<button
-									onClick={() => {
-										setAñadirUsuario(!añadirUsuario)
-										setUpdateInfoUser(null)
-									}}>{updateInfoUser ? 'Cancelar' : 'Ver usuarios'}</button>
-							</>
-							:
-							<>
+					? // ¿ WELCOME PAGE
+					<WelcomePage setRegister={setRegister} />
+					:
+					añadirUsuario
+						? // ¿ FORM PAGE
+						<div id='form-page'>
+							<UserForm
+								createUser={createUser}
+								updateUser={updateUser}
+								updateInfoUser={updateInfoUser}
+								setUpdateInfoUser={setUpdateInfoUser}
+								setAñadirUsuario={setAñadirUsuario} />
 
-								<div className='header-users'>
-									<h1>Usuarios</h1>
-									<button onClick={() => setAñadirUsuario(!añadirUsuario)}>Crear usuario</button>
-								</div>
-								<div className='users-container'>
-									{
-										users?.map(user => (
-											<UserCard
-												key={user.id}
-												user={user}
-												deleteUser={deleteUser}
-												setUpdateInfoUser={setUpdateInfoUser}
-												setAñadirUsuario={setAñadirUsuario}
-											/>
-										))
-									}
-								</div>
-
-							</>
-					)
+						</div>
+						: // ¿ USERS PAGE
+						<div id='users-page'>
+							<div className='users-page_header'>
+								<h1>Usuarios</h1>
+								<button onClick={() => setAñadirUsuario(true)}>Crear usuario</button>
+							</div>
+							<div className='users-page_container'>
+								{
+									users?.map(user => (
+										<UserCard
+											key={user.id}
+											user={user}
+											deleteUser={deleteUser}
+											setUpdateInfoUser={setUpdateInfoUser}
+											setAñadirUsuario={setAñadirUsuario}
+										/>
+									))
+								}
+							</div>
+						</div>
 			}
 		</>
 	)

@@ -1,0 +1,28 @@
+.welcome-page {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	place-content: center;
+}
+
+.welcome-msg {
+	font-size: 3.2rem;
+	line-height: 1.1;
+	text-align: center;
+}
+
+.welcome-btn {
+	width: fit-content;
+	margin: 2em auto;
+	font-weight: 600;
+	letter-spacing: 1.5px;
+	background-color: var(--cherry-red);
+	color: var(--black);
+	font-size: 1.1rem;
+	transition: background-color .12s;
+}
+
+.welcome-btn:hover {
+	background-color: var(--navy-blue);
+	color: var(--cream);
+}

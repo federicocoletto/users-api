@@ -1,48 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,800;1,200;1,300;1,400;1,500&display=swap');
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
-}
-
-ul {
-	list-style: none;
-}
-
 #root {
-	width: 90%;
-	max-width: 1024px;
-}
-
-.welcomePage {
+	width: 100%;
+	max-width: 900px;
+	/* margin: 0 2em; */
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
-	place-content: center;
+	align-content: center;
 }
 
-.welcomePage button {
+
+/* ¿ FORM PAGE */
+#form-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 2em 1em;
+}
+
+#form-page button {
 	width: fit-content;
-	margin: 2em auto;
 }
 
-article button {
-	background-color: #222;
-	display: block;
-	margin: 2em auto 0;
+
+/* ¿ USERS PAGE */
+#users-page {
+	width: 100%;
+	min-height: 100vh;
+	padding: 0 2em;
 }
 
-.header-users {
+.users-page_header {
 	display: flex;
 	justify-content: space-between;
-	align-items: start;
+	align-items: center;
 	height: 100px;
-	margin-top: 2em;
 }
 
-.users-container {
+.users-page_header button:hover {
+	background-color: var(--black);
+	color: var(--cream);
+	transition: all .3s;
+}
+
+.users-page_container {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-	gap: 1em;
+	gap: 2em;
 }
