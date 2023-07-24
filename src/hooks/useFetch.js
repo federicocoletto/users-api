@@ -22,7 +22,7 @@ const useFetch = (base_URL, path) => {
 	};
 
 	const deleteApiObj = (id) => {
-		const url = `${base_URL}${path}${id}/`;
+		const url = `${base_URL}${path}/${id}`;
         axios
 			.delete(url, id)
 			.then(() => {
@@ -33,9 +33,9 @@ const useFetch = (base_URL, path) => {
 	};
 
     const updateApiObj = (id, data) => {
-        const url = `${base_URL}${path}${id}/`
+        const url = `${base_URL}${path}/${id}`
         axios
-			.patch(url, data)
+			.put(url, data)
 			.then(() => {
                 const updateApi = apiInfo?.map((element => {
                     if (element.id === data.id) {
