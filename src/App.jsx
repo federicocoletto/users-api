@@ -10,7 +10,8 @@ import WelcomePage from './components/WelcomePage'
 
 function App() {
 
-	const base_URL = 'https://users-crud.academlo.tech/'
+	// const base_URL = 'https://users-crud.academlo.tech/'
+	const base_URL = 'https://users-crud-fc.onrender.com/'
 	const users_path = 'users/'
 
 	const [users, getUser, createUser, deleteUser, updateUser] = useFetch(base_URL, users_path)
