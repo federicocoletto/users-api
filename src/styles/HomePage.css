@@ -1,4 +1,4 @@
-.landing.page {
+.home.page {
 	height: 100vh;
 	display: grid;
 	place-content: center;
@@ -7,15 +7,16 @@
 }
 
 @media (min-width: 425px) {
-	.landing.page {
+	.home.page {
 		grid-template-columns: 30rem;
 	}
 	
-	.landing__h1{
+	.home__h1{
 		font-size: 8rem;
 	}
 }
-.landing__h1{
+.home__h1{
+	color: var(--white);
 	font-size: 6rem;
 	letter-spacing: 3px;
 	text-align: center;
