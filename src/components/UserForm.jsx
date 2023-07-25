@@ -39,68 +39,70 @@ const UserForm = ({
 	}
 
 	return (
-		<form
-			className={updateInfoUser ? 'update-form' : 'form__login'}
-			onSubmit={handleSubmit(submit)}>
-			<h1 className={updateInfoUser ? 'warning-msg_form' : 'form__header-h1'}>{`¿${updateInfoUser?.first_name.split(' ')[0]}, segure quieres modificar tus datos?`}</h1>
-			<div className='form__input'>
-				<label htmlFor="first_name" className="input__label">First name</label>
-				<input
-					{...register('first_name')}
-					id="first_name"
-					type="text"
-					className="input__input"
+		<div className="form__container">
+			<form className={`form__box ${updateInfoUser ? 'update' : 'login'}`} onSubmit={handleSubmit(submit)} >
+				<h1 className={`update__msg ${updateInfoUser ? '' : 'hide'}`} >
+					{`¿${updateInfoUser?.first_name.split(' ')[0]}, segure quieres modificar tus datos?`}
+				</h1>
+				<div className='form__item'>
+					<label htmlFor="first_name" className="form__item-label">First name</label>
+					<input
+						{...register('first_name')}
+						id="first_name"
+						type="text"
+						className="form__item-input"
 					/>
-			</div>
-			<div className='form__input'>
-				<label htmlFor="last_name" className="input__label">Last name</label>
-				<input
-					{...register('last_name')}
-					id="last_name"
-					type="text"
-					className="input__input"
+				</div>
+				<div className='form__item'>
+					<label htmlFor="last_name" className="form__item-label">Last name</label>
+					<input
+						{...register('last_name')}
+						id="last_name"
+						type="text"
+						className="form__item-input"
 					/>
-			</div>
-			<div className='form__input'>
-				<label htmlFor="email" className="input__label">Email</label>
-				<input
-					{...register('email')}
-					id="email"
-					type="text"
-					className="input__input"
+				</div>
+				<div className='form__item'>
+					<label htmlFor="email" className="form__item-label">Email</label>
+					<input
+						{...register('email')}
+						id="email"
+						type="text"
+						className="form__item-input"
 					/>
-			</div>
-			<div className='form__input'>
-				<label htmlFor="password" className="input__label">Password</label>
-				<input
-					{...register('password')}
-					id="password"
-					type="password"
-					className="input__input"
+				</div>
+				<div className='form__item'>
+					<label htmlFor="password" className="form__item-label">Password</label>
+					<input
+						{...register('password')}
+						id="password"
+						type="password"
+						className="form__item-input"
 					/>
-			</div>
-			<div className='form__input'>
-				<label htmlFor="birthday" className="input__label">Birthday</label>
-				<input
-					{...register('birthday')}
-					id="birthday"
-					type="date"
-					className="input__input"
+				</div>
+				<div className='form__item'>
+					<label htmlFor="birthday" className="form__item-label">Birthday</label>
+					<input
+						{...register('birthday')}
+						id="birthday"
+						type="date"
+						className="form__item-input"
 					/>
-			</div>
-			<div className="form__buttons">
-				<button
-					className="login__button"
-					onClick={() => {
-						setAñadirUsuario(false)
-						setUpdateInfoUser(null)
-					}}
-				>{updateInfoUser ? 'Cancelar' : 'Ver usuarios'}</button>
-				<button
-					className="login__button"
-				>{updateInfoUser ? 'Guardar cambios' : 'Registrarse'}</button>
-			</div>
-		</form>
+				</div>
+				<div className="form__buttons">
+					<button
+						className="login-update__button"
+					>{updateInfoUser ? 'Guardar cambios' : 'Log In'}</button>
+					<button
+						className="login-cancel__button"
+						onClick={() => {
+							setAñadirUsuario(false)
+							setUpdateInfoUser(null)
+						}}
+					>{updateInfoUser ? 'Cancelar' : 'Ver usuarios'}</button>
+				</div>
+			</form>
+		</div>
 	)
 }
 

@@ -4,51 +4,60 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import useFetch from './hooks/useFetch'
-import UserForm from './components/UserForm'
-import UserCard from './components/UserCard'
-import WelcomePage from './components/WelcomePage'
+import HomePage from './pages/HomePage'
+import { Route, Routes } from 'react-router-dom'
+import LoginPage from './pages/LoginPage'
+import UsersPage from './pages/UsersPage'
+import { useDispatch } from 'react-redux'
+import { getAllUsersThunk } from './store/slices/users.slice'
 
 function App() {
 
-	// const base_URL = 'https://users-crud.academlo.tech/'
-	const base_URL = 'https://users-crud-fc.onrender.com/api/v1'
-	const users_path = '/users'
-
-	const [users, getUser, createUser, deleteUser, updateUser] = useFetch(base_URL, users_path)
-	const [updateInfoUser, setUpdateInfoUser] = useState()
-	const [añadirUsuario, setAñadirUsuario] = useState(true)
-	const [register, setRegister] = useState(false)
+	const dispatch = useDispatch()
 
 	useEffect(() => {
-		getUser()
-	}, [])
+		dispatch(getAllUsersThunk())
+	}, []);
+
+
+	// const [updateInfoUser, setUpdateInfoUser] = useState()
+	// const [añadirUsuario, setAñadirUsuario] = useState(true)
+
+	
 
 
 
 	return (
-		<>
-			{
+		<div className="app">
+			<Routes>
+				<Route path='/' element={<HomePage />} />
+				<Route path='/login' element={<LoginPage />} />
+				<Route path='/users' element={<UsersPage />} />
+			</Routes>
+		</div>
+	)
+}
+
+export default App
+
+{/* {
 				register !== true
 					? // ¿ WELCOME PAGE
-					<div className='page welcome'>
-						<WelcomePage setRegister={setRegister} />
-					</div>
+					<WelcomePage setRegister={setRegister} getUserById={getUserById} />
 					:
 					añadirUsuario
 						? // ¿ FORM PAGE
-						<div className="page form__page login">
-							<UserForm
-								createUser={createUser}
-								updateUser={updateUser}
-								updateInfoUser={updateInfoUser}
-								setUpdateInfoUser={setUpdateInfoUser}
-								setAñadirUsuario={setAñadirUsuario} />
-						</div>
+						<UserForm
+							createUser={createUser}
+							updateUser={updateUser}
+							updateInfoUser={updateInfoUser}
+							setUpdateInfoUser={setUpdateInfoUser}
+							setAñadirUsuario={setAñadirUsuario} />
 						: // ¿ USERS PAGE
-						<div id='users-page'>
+						<div className="page users">
 							<div className='users-page_header'>
-								<h1>Usuarios</h1>
-								<button onClick={() => setAñadirUsuario(true)}>Crear usuario</button>
+								<h1>USERS</h1>
+								<button onClick={() => setAñadirUsuario(true)}>Register new user</button>
 							</div>
 							<div className='users-page_container'>
 								{
@@ -64,9 +73,4 @@ function App() {
 								}
 							</div>
 						</div>
-			}
-		</>
-	)
-}
-
-export default App
+			} */}

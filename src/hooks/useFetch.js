@@ -2,29 +2,37 @@
 import axios from "axios";
 import { useState } from "react";
 
-const useFetch = (base_URL, path) => {
+const useFetch = () => {
 	const [apiInfo, setApiInfo] = useState();
+	const baseURL = 'https://users-crud-fc.onrender.com/api/v1/users'
 
 	const getApiInfo = () => {
-		const url = `${base_URL}${path}`;
+		const url = baseURL;
 		axios
-			.get(url)
-			.then((res) => setApiInfo(res.data))
-			.catch((err) => console.log(err));
+		.get(url)
+		.then((res) => setApiInfo(res.data))
+		.catch((err) => console.log(err));
 	};
-
+	
 	const createApiObj = (data) => {
-		const url = `${base_URL}${path}`;
+		const url = baseURL;
 		axios
 			.post(url, data)
-			.then((res) => setApiInfo([...apiInfo, res.data]))
+			.then((res) => setApiInfo([...apiInfo, res.data]), console.log(apiInfo))
 			.catch((err) => console.log(err));
 	};
 
+	const getUserById = (id) => {
+		const url = `${baseURL}/${id}`;
+		axios.get(url)
+		.then(res => console.log(res.data))
+		.catch(err => console.log(err))
+	}
+	
 	const deleteApiObj = (id) => {
-		const url = `${base_URL}${path}/${id}`;
+		const url = `${baseURL}/${id}`;
         axios
-			.delete(url, id)
+		.delete(url, id)
 			.then(() => {
                 const filterApi = apiInfo.filter(element => element.id !== id)
                 setApiInfo(filterApi)
@@ -33,7 +41,7 @@ const useFetch = (base_URL, path) => {
 	};
 
     const updateApiObj = (id, data) => {
-        const url = `${base_URL}${path}/${id}`
+		const url = `${baseURL}/${id}`;
         axios
 			.put(url, data)
 			.then(() => {
