@@ -1,0 +1,85 @@
+.users.page {
+	display: grid;
+	gap: 3rem;
+	--pale-fuccia: #f391f7;
+	--fuccia: #d80a56;
+	--dark-blue: #020635e7;
+	--black: #131313;
+	--white: #fafafa;
+}
+
+.users__header {
+	display: flex;
+	/* margin-top: 1rem; */
+	align-items: center;
+	background-color: var(--pale-fuccia);
+	height: 10rem;
+	padding: 0 1rem;
+}
+
+.users__h1 {
+	width: 70%;
+	font-size: 3rem;
+}
+
+.users__button {
+	width: 30%;
+}
+
+/* ? users__cards */
+.users__cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+	padding: 0 1rem 1rem;
+	gap: 1rem;
+}
+
+
+.user__card {
+	background-color: var(--fuccia);
+	padding: 1rem;
+	width: 100%;
+	/* max-width: 30rem; */
+	margin: 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.card__header {}
+
+.card__title {}
+
+.card__body {
+	display: flex;
+	flex-direction: column;
+	gap: .7rem;
+}
+
+.card__email,
+.card__birthday {
+	display: flex;
+	justify-content: space-between;
+}
+
+.card__body-h2 {
+	font-weight: 400;
+	font-size: 1rem;
+}
+
+.card__body-span {
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 600;
+}
+
+.card__buttons {
+	display: flex;
+	gap: 1rem;
+}
+
+button.card__button.delete, 
+button.card__button.update {
+	font-weight: 500;
+	font-family: 'Poppins';
+}

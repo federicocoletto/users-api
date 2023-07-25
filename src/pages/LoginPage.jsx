@@ -1,20 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
-import useFetch from "../hooks/useFetch";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { createUserThunk } from "../store/slices/users.slice";
+import '../styles/LoginPage.css'
 
 const LoginPage = () => {
-
-	// const [users, getUser, createUser, getUserById, deleteUser, updateUser] = useFetch()
-
-	// useEffect(() => {
-	// 	getUser()
-	// 	console.log(users)
-	// }, [])
 
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
@@ -31,7 +23,6 @@ const LoginPage = () => {
 			birthday: "",
 		})
 	}
-
 
 	return (
 		<div className="login page">

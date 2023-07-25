@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import UserCard from "../components/UserCard";
 import { useSelector } from "react-redux";
+import "../styles/UsersPage.css";
+
 
 const UsersPage = () => {
 	
@@ -10,7 +12,7 @@ const UsersPage = () => {
 
 	return (
 		<div className="users page">
-			<header className="page__header users">
+			<header className="users__header">
 				<h1 className="users__h1">Users APP</h1>
 				<button className="users__button"><Link to="/login">Add new user</Link></button>
 			</header>

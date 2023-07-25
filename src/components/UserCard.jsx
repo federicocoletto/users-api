@@ -36,8 +36,14 @@ const UserCard = ({ userInfo }) => {
                 <h1 className="card__title">{userInfo.first_name} {userInfo.last_name}</h1>
             </div>
             <main className="card__body">
-                <h3 className="card__email">{userInfo.email}</h3>
-                <h4 className="card__birthday">{userInfo.birthday}</h4>
+                <div className="card__email">
+                    <h2 className="card__body-h2">Email</h2>
+                    <span className="card__body-span">{userInfo.email}</span>
+                </div>
+                <div className="card__birthday">
+                    <h2 className="card__body-h2">Birthday</h2>
+                    <span className="card__body-span">{userInfo.birthday}</span>
+                </div>
             </main>
             <footer className="card__buttons">
                 <button className="card__button delete" onClick={() => dispatch(deleteUserThunk(userInfo.id))}>Delete</button>
@@ -47,28 +53,28 @@ const UserCard = ({ userInfo }) => {
                 updateUserState === true
                     ?
                     (
-                        <form className="form login__form" onSubmit={handleSubmit(submitUpdate)}>
-                            <div className="form__entry login">
+                        <form className="form update__form" onSubmit={handleSubmit(submitUpdate)}>
+                            <div className="form__entry update">
                                 <label htmlFor="first-name" className="form__label">First name</label>
                                 <input type="text" className="form__input" {...register("first_name")} />
                             </div>
-                            <div className="form__entry login">
+                            <div className="form__entry update">
                                 <label htmlFor="last-name" className="form__label">Last name</label>
                                 <input type="text" className="form__input" {...register("last_name")} />
                             </div>
-                            <div className="form__entry login">
+                            <div className="form__entry update">
                                 <label htmlFor="email" className="form__label">Email</label>
                                 <input type="email" className="form__input" {...register("email")} />
                             </div>
-                            <div className="form__entry login">
+                            <div className="form__entry update">
                                 <label htmlFor="password" className="form__label">Password</label>
                                 <input type="password" className="form__input" {...register("password")} />
                             </div>
-                            <div className="form__entry login">
+                            <div className="form__entry update">
                                 <label htmlFor="birthday" className="form__label">Birthday</label>
                                 <input type="date" className="form__input" {...register("birthday")} />
                             </div>
-                            <div className="form__buttons login">
+                            <div className="form__buttons update">
                                 <button>Accept</button>
                                 <button onClick={() => setUpdateUserState(false)}>Cancel</button>
                             </div>
