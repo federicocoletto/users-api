@@ -1,48 +1,13 @@
 #root {
 	width: 100%;
-	max-width: 900px;
-	/* margin: 0 2em; */
-	display: flex;
-	flex-direction: column;
-	align-content: center;
+	max-width: 1280px;
+	margin: auto;
+	height: 100%;
 }
 
-
-/* ¿ FORM PAGE */
-#form-page {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding: 2em 1em;
-}
-
-#form-page button {
-	width: fit-content;
-}
-
-
-/* ¿ USERS PAGE */
-#users-page {
-	width: 100%;
-	min-height: 100vh;
-	padding: 0 2em;
-}
-
-.users-page_header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 100px;
-}
-
-.users-page_header button:hover {
-	background-color: var(--black);
-	color: var(--cream);
-	transition: all .3s;
-}
-
-.users-page_container {
+.page {
+    height: 100vh;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-	gap: 2em;
+    place-content: center;
+
 }

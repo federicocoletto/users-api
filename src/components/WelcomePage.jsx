@@ -1,20 +1,20 @@
 /* eslint-disable react/prop-types */
 import '../styles/WelcomePage.css'
 
-const WelcomePage = ({setRegister}) => {
-    
+const WelcomePage = ({ setRegister }) => {
+
     const handleClickFirstReg = () => {
         setRegister(true)
     }
-    
+
     return (
-        <div className='welcome-page'>
-            <h1 className='welcome-msg'>Bienvenido</h1>
+        <>
+            <h1 className='welcome__h1'>Welcome to my API Users CRUD</h1>
             <button
-                className='welcome-btn'
+                className='welcome__button'
                 onClick={handleClickFirstReg}
-            >Registrarse</button>
-        </div>
+            >Log In</button>
+        </>
     )
 }
 

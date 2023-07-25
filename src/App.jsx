@@ -30,18 +30,19 @@ function App() {
 			{
 				register !== true
 					? // ¿ WELCOME PAGE
-					<WelcomePage setRegister={setRegister} />
+					<div className='page welcome'>
+						<WelcomePage setRegister={setRegister} />
+					</div>
 					:
 					añadirUsuario
 						? // ¿ FORM PAGE
-						<div id='form-page'>
+						<div className="page form__page login">
 							<UserForm
 								createUser={createUser}
 								updateUser={updateUser}
 								updateInfoUser={updateInfoUser}
 								setUpdateInfoUser={setUpdateInfoUser}
 								setAñadirUsuario={setAñadirUsuario} />
-
 						</div>
 						: // ¿ USERS PAGE
 						<div id='users-page'>

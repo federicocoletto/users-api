@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,800;1,200;1,300;1,400;1,500&display=swap');
+/*
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+*/
+
+
 
 * {
 	margin: 0;
@@ -7,30 +12,27 @@
 }
 
 :root {
-	--cream: #FCECC9;
-	--coral-pink: #FCB0B3;
-	--cherry-red: #F93943;
-	--sky-blue: #c0d9ec;
-	--navy-blue: #42619e;
-	--black: #242424;
-	--input-placeholder: #7a685a;
+	--periwinkle: #C6D4FF;
+	--cool-gray: #7A82AB;
+	--purple: #3a0f80;
+	--black: #202020;
+	--white: #fafafa;
 	
 	
 	font-family: 'Poppins', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	line-height: 1.5;
-	font-weight: 400;
+	font-size: 62.5%;
+	letter-spacing: 1px;
 	
-	background-color: var(--cream);
-	color: var(--black);
+	background-color: var(--black);
+	color: var(--white);
 }
 
 body {
-	margin: 0;
-	display: flex;
-	justify-content: center;
 	min-width: 320px;
-	min-height: 100vh;
-	background-color: inherit;
+	height: 100%;
+	background-color: var(--black);
 }
 
 ul {
@@ -38,26 +40,48 @@ ul {
 }
 
 input {
-	height: 40px;
+	height: 3rem;
+	padding-left: .5rem;
+	background-color: inherit;
+	border: none;
+	border-bottom: 1px solid var(--cool-gray);
+	color: var(--white);
+    letter-spacing: 1px;
+	font-family: 'Poppins';
+	font-size: 1rem;
+	/*
     border-radius: .5em;
     border: none;
 	background-color: var(--coral-pink);
 	padding: 0 .5em;
-}
-
-input::placeholder {
-	color: var(--input-placeholder);
+	*/
 }
 
 input[type="date" i] {
-	color: var(--input-placeholder);
 	font-family: 'Poppins', sans-serif;
 }
 
 button {
-	font-family: 'Poppins', sans-serif;
-	padding: .8em 1.4em;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 1px;
+	font-weight: 600;
+	font-size: 1.4rem;
+	color: var(--black);
+	
+	padding: .3rem .8rem;
+	border-radius: 1rem;
+	/* outline: 2px solid var(--purple); */
 	border: none;
-	border-radius: .5em;
-	cursor: pointer;
+	/* box-shadow: ; */
+	
+	cursor: pointer;	
+	transform: scale(1);
+	background-color: var(--periwinkle);
+	transition: transform .2s ease;
+}
+
+button:hover {
+	transform: scale(.97);
+	background-color: var(--cool-gray);
+	color: #111;
 }
