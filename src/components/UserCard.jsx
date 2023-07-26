@@ -8,7 +8,7 @@ const UserCard = ({ userInfo }) => {
     const { handleSubmit, register, reset } = useForm()
     const [updateUserState, setUpdateUserState] = useState(false);
     const [deleteUserState, setDeleteUserState] = useState(false);
-    
+
     const dispatch = useDispatch()
 
     const handleClickUpdate = () => {
@@ -26,7 +26,7 @@ const UserCard = ({ userInfo }) => {
     const submitUpdate = (formData) => {
         dispatch(updateUserThunk(userInfo.id, formData))
     }
-    
+
     return (
         <div className="user__card">
             <div className="card__header">
@@ -48,16 +48,21 @@ const UserCard = ({ userInfo }) => {
             </footer>
             {
                 deleteUserState === true
-                ? (
-                    <div className="delete__module">
-                        <p className="delete__module-p">{`Delete '${userInfo.first_name} ${userInfo.last_name}' register?`}</p>
-                        <div className="delete__module-buttons">
-                            <button className="delete__module-button" onClick={() => dispatch(deleteUserThunk(userInfo.id))}>Accept</button>
-                            <button className="delete__module-button" onClick={() => setDeleteUserState(false)}>Cancel</button>
+                    ? (
+                        <div className="delete__module">
+                            <p className="delete__module-p">{`Delete '${userInfo.first_name} ${userInfo.last_name}' register?`}</p>
+                            <div className="delete__module-buttons">
+                                <button className="delete__module-button" onClick={() => {
+                                    dispatch(deleteUserThunk(userInfo.id))
+                                    setDeleteUserState(false)
+                                }}>
+                                    Accept
+                                </button>
+                                <button className="delete__module-button" onClick={() => setDeleteUserState(false)}>Cancel</button>
+                            </div>
                         </div>
-                    </div>
-                )
-                : ''
+                    )
+                    : ''
             }
             {
                 updateUserState === true
