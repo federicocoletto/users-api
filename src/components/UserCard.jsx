@@ -7,6 +7,7 @@ import { useState } from 'react';
 const UserCard = ({ userInfo }) => {
     const { handleSubmit, register, reset } = useForm()
     const [updateUserState, setUpdateUserState] = useState(false);
+    const [deleteUserState, setDeleteUserState] = useState(false);
     
     const dispatch = useDispatch()
 
@@ -26,10 +27,6 @@ const UserCard = ({ userInfo }) => {
         dispatch(updateUserThunk(userInfo.id, formData))
     }
     
-    // const handleClickAccept = (formData) => {
-    //     dispatch(updateUserThunk(userInfo.id, formData))
-    // }
-
     return (
         <div className="user__card">
             <div className="card__header">
@@ -46,9 +43,22 @@ const UserCard = ({ userInfo }) => {
                 </div>
             </main>
             <footer className="card__buttons">
-                <button className="card__button delete" onClick={() => dispatch(deleteUserThunk(userInfo.id))}>Delete</button>
+                <button className="card__button delete" onClick={() => setDeleteUserState(true)}>Delete</button>
                 <button className="card__button update" onClick={handleClickUpdate}>Update</button>
             </footer>
+            {
+                deleteUserState === true
+                ? (
+                    <div className="delete__module">
+                        <p className="delete__module-p">{`Delete '${userInfo.first_name} ${userInfo.last_name}' register?`}</p>
+                        <div className="delete__module-buttons">
+                            <button className="delete__module-button" onClick={() => dispatch(deleteUserThunk(userInfo.id))}>Accept</button>
+                            <button className="delete__module-button" onClick={() => setDeleteUserState(false)}>Cancel</button>
+                        </div>
+                    </div>
+                )
+                : ''
+            }
             {
                 updateUserState === true
                     ?
